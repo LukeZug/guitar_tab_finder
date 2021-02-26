@@ -1,0 +1,27 @@
+body {
+    background: #00171F;
+    color: white;
+}
+
+#searchCon {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: #003459;
+}
+
+#searchBtn {
+    width: 33.3%;
+}
+
+#searchBar {
+    width: 66.6%;
+}
+
+#songCard {
+    color: black; 
+    height: 100%;
+    text-align: center;
+}

@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <div id="topBar" class="mt-3">
+        <h2 class="mt-3 d-inline">There are <%= data.length %> results for "<%= userQuery %>"</h2><a href="/" class="btn btn-warning" style="float: right;">Back to search</a>
+    </div>
+
+    <div class="row">
+        <% if(data.length === 0){ %>
+            <div class="col-12 mt-3 mb-3">
+                <div class="card" id="songCard">
+                    <div class="card-body">
+                        <h5 class="card-title">No Results :(</h5>
+                        <p class="card-text">Please try again or broaden your search.</p>
+                    </div>
+                </div>
+            </div>
+        <% } else { %>
+            <% data.forEach((song) => { %>
+                <div class="col-4 mt-3 mb-3">
+                    <div class="card" id="songCard">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= song.title.toUpperCase() %></h5>
+                            <p class="card-text">By <%= song.artist.name %></p>
+                            <form action="/search" method="POST">
+                                <input type="hidden" name="title" value="<%= song.title.toUpperCase() %>">
+                                <input type="hidden" name="artist" value="<%= song.artist.name %>">
+                                <input type="hidden" name="songID" value="<%= song.id %>">
+                                <a href="http://www.songsterr.com/a/wa/song?id=<%= song.id %>" class="btn btn-primary" style="width:60%;">View Tabs</a>
+                                <button class="btn btn-success"><i class="fas fa-plus"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        <% }; %>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

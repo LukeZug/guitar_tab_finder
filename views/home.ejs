@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+
+<div class="container" id="searchCon">
+    <div id="search">
+        <i class="fas fa-guitar fa-5x mb-2"></i>
+
+        <h1>Find guitar tabs from artists</h1>
+
+        <form action="/search" method="GET">
+            <input type="text" placeholder="Enter artist/band name" name="userQuery" class="form-control mb-3 mt-2 d-inline" id="searchBar" required>
+            <button class="btn btn-primary" id="searchBtn">Search</button>
+            <a href="/list" class="btn btn-warning ml-2">View List</a>
+        </form>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
